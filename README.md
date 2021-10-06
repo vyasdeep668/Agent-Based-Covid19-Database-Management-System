@@ -1,4 +1,4 @@
-# Agent-Based-Covid19-Database-Managment-System
+# Agent-Based-Covid19-Database-Management-System
 
 ## Prject Description
 ----------------------
