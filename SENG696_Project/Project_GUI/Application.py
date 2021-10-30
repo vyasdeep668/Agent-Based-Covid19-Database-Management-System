@@ -6,6 +6,7 @@ import tkinter as tk
 from tkinter import ttk
 
 #Import Pages
+import Database
 from GUI import LoginPage
 from GUI import UserPage
 from GUI import AHSAdminPage
@@ -44,6 +45,8 @@ User3_Password = "user3"
 
 #UserAccessLevel: 0->Admin, 1->AHSAdmin, 2->User
 UserAccessLevel = 0
+
+
 
 
 class Application(tk.Tk):
@@ -90,6 +93,12 @@ class Application(tk.Tk):
         frame = self.frames[cont]
         frame.tkraise()
 
+
 if __name__ == '__main__':
+    #print(Database.UserDatabase[0])
+    #Database.UserDatabase.append(Database.listtoappend)
+    #print(Database.UserDatabase[3])
+    #user = Database.FindRecord("00001")
+    #print(user)
     app = Application()
     app.mainloop()

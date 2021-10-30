@@ -5,6 +5,7 @@ from tkinter import ttk
 from PIL import ImageTk, Image
 
 #Import Pages
+import Database
 from GUI import LoginPage
 from GUI import UserPage
 from GUI import AHSAdminPage
@@ -12,7 +13,7 @@ from GUI import AdminPage
 from GUI import EditVaccineDataPage
 from GUI import AddOnlyVaccineDataPage
 
-from Application import Application
+import Application
 
 
 UserPageFrame = tk.Frame
@@ -30,13 +31,22 @@ class UserPage(UserPageFrame):
     def Button3_Callback(self, controller):
         print('UserPage Button 3 Pressed')
         self.UpdateEntryData()
+        user = Database.FindRecord(Application.HCNo)
+        if(user == 0):  #User Not Found
+            tkinter.messagebox.showerror(title="Error", message="Data Not Found")
+        else:
+            print(user)
+            self.UpdateUserData(user)
+            self.RefreshDataListBox()
+
         #controller.show_frame(TestPage1.PageOne)
 
     def Button4_Callback(self, controller):
         print('UserPage Button 4 Pressed')
-        Curr_Frame = LoginPage.LoginPage
-        print("LoginPage Initialized")
-        controller.show_frame(LoginPage.LoginPage)
+        if( (tk.messagebox.askquestion ('Logout', 'Are you sure you want to logout', icon = 'question')) == 'yes'):
+            Curr_Frame = LoginPage.LoginPage
+            print("LoginPage Initialized")
+            controller.show_frame(LoginPage.LoginPage)
 
     def Button5_Callback(self, controller):
         print('UserPage Button 5 Pressed')
@@ -48,6 +58,37 @@ class UserPage(UserPageFrame):
         print("Name: " + Application.Name)
         print("HCNo: " + Application.HCNo)
 
+    def RefreshDataListBox(self):
+        self.ClearListBox()
+        self.Listbox1.insert(1, "Database Entry")
+        self.Listbox1.insert(3, "Name: " + Application.Name)
+        self.Listbox1.insert(4, "HC No: " + Application.HCNo)
+        self.Listbox1.insert(5, "DOB: " + Application.DOB)
+        self.Listbox1.insert(6, "Address: " + Application.Address)
+        self.Listbox1.insert(7, "Contact: " + Application.Contact)
+        self.Listbox1.insert(8, "Dose 1 Type: " + Application.Dose1Type)
+        self.Listbox1.insert(9, "Dose 1 Date: " + Application.Dose1Date)
+        self.Listbox1.insert(10, "Dose 1 Location: "  +Application.Dose1Address)
+        self.Listbox1.insert(11, "Dose 2 Type: " + Application.Dose2Type)
+        self.Listbox1.insert(12, "Dose 2 Date: " + Application.Dose2Date)
+        self.Listbox1.insert(13, "Dose 2 Location: " + Application.Dose2Address)
+
+    def UpdateUserData(self, user):
+        Application.Name = user[0]
+        Application.HCNo = user[1]
+        Application.DOB = user[2]
+        Application.Address = user[3]
+        Application.Contact = user[4]
+        Application.Dose1Type = user[5]
+        Application.Dose1Date = user[6]
+        Application.Dose1Address = user[7]
+        Application.Dose2Type = user[8]
+        Application.Dose1Date = user[9]
+        Application.Dose1Address = user[10]
+
+    def ClearListBox(self):
+        self.Listbox1.delete('0', 'end')
+
 
 
     def __init__(self, parent, controller):
@@ -55,7 +96,7 @@ class UserPage(UserPageFrame):
 
         #Adding Image to frame
         # BgImage = Image.open("Images\BackgroundImage.png")
-        BgImage = Image.open("Images\Image1.jpg")
+        BgImage = Image.open("Images\Image3.jpg")
         BgImage = ImageTk.PhotoImage(BgImage.resize((1920, 1080), Image.ANTIALIAS))
         self.Label1 = tk.Label(self, image = BgImage)
         self.Label1.image = BgImage
@@ -143,7 +184,7 @@ class UserPage(UserPageFrame):
 
         #Database List Box
         self.Listbox1 = tk.Listbox(self)
-        self.Listbox1.place(relx=0.0, rely=0.7, relheight=0.377, relwidth = 0.999)
+        self.Listbox1.place(relx=0.0, rely=0.627, relheight=0.377, relwidth = 0.999)
         self.Listbox1.configure(background="#c1f9f9")
         self.Listbox1.configure(borderwidth="3")
         self.Listbox1.configure(cursor="hand2")
@@ -151,15 +192,6 @@ class UserPage(UserPageFrame):
         self.Listbox1.configure(font="-family {8514oem} -size 13")
         self.Listbox1.configure(foreground="#000000")
         self.Listbox1.xview()
-        #Default View
-        self.Listbox1.insert(1, "Database Entry")
-        self.Listbox1.insert(3, "Name: Deep Vyas")
-        self.Listbox1.insert(4, "HC No: 1234567")
-        self.Listbox1.insert(5, "DOB: 10/14/1997")
-        self.Listbox1.insert(6, "Address: 3843, Charleswood Dr. NW Calgary")
-        self.Listbox1.insert(7, "Contact: (587) 968 9120")
-        self.Listbox1.insert(8, "Dose1: Covishield 07/21/2021 University Pharmacy")
-        self.Listbox1.insert(9, "Dose2: Covishield 08/28/2021 University Pharmacy")
 
         # Generate Report Button
         self.Button5 = tk.Button(self)

@@ -94,7 +94,7 @@ class AddOnlyVaccineDataPage(AddOnlyVaccineDataPageFrame):
 
         #Adding Image to frame
         # BgImage = Image.open("Images\BackgroundImage.png")
-        BgImage = Image.open("Images\Image1.jpg")
+        BgImage = Image.open("Images\Image3.jpg")
         BgImage = ImageTk.PhotoImage(BgImage.resize((1920, 1080), Image.ANTIALIAS))
         self.Label1 = tk.Label(self, image = BgImage)
         self.Label1.image = BgImage
