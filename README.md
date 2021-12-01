@@ -19,8 +19,15 @@ Agent based system for accessing Covid-19 vaccination reports from the database 
 ![Capture](https://user-images.githubusercontent.com/24715827/136296510-0e911c1d-2d1a-48b8-8fc3-81cbdae2f5c9.PNG)
 
 
-## Theory and workflow
+## Software Requirements
 ----------------------
+-> Please Use requirements.txt file to install all dependencies on your machine
+1) Python 3.7
+2) Tkinter (For GUI)
+3) Spade (Multi Agent System Framework)
+4) mysql (Database Management)
+5) fpdf (PDF Report Generation)
+6) qrcode (QR Code Generation)
+7) Pillow (Documents Operation)
 
 
-## 
