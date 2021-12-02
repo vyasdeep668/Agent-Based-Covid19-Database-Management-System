@@ -2,26 +2,39 @@
 
 ## Prject Description
 ----------------------
-Agent based system for accessing Covid-19 vaccination reports from the database for Alberta patients.
+COVID-19 vaccines help prevent us from getting infected and protect us from getting severely sick if we do get it. Albertans may wish to prove vaccination status if accessing businesses, other facilities, or travelling. Alberta vaccine reports will be the only valid Alberta proof of vaccination accepted by operators participating in the Restrictions Exemption Program as of November 15. Valid Alberta vaccine record will show name, birthdate, and vaccination type and date. Our project explains how to use Agent-based model to access and retrieve Covid-19 vaccination reports from the database for people who resides in Alberta. 
 
   
-## Use Cases
+## Objectives
 ----------------------
--> Our use case involves 4 actors as follows: Patient, User agent, AHS admin agent, and System database agent.
+Multi-agent systems technology allows for the development of autonomous software entities (intelligent agents) which are designed to communicate with each other. In our project, we are aiming to have a multi-agent system with the following agents: 
 
--> The roles of the actors are explained below:
-   
-   1) Patient: A person who gets the vaccine and able to access the vaccination report.
-   2) User agent: An agent who manages the user and gets the vaccination report on behalf of the user to be displayed. 
-   3) AHS admin agent: An agent who stores data related to COVID 19.
-   4) System database agent: It represents the back end of our software where all the database information is stored/retrieved/updated. System database agent will manage reports                                as well.
+**User agent**: who manages the user and gets the vaccination report on behalf of the user to be displayed. 
 
-![Capture](https://user-images.githubusercontent.com/24715827/136296510-0e911c1d-2d1a-48b8-8fc3-81cbdae2f5c9.PNG)
+**AHS admin agent**: An agent who stores data related to COVID 19.
+
+**System database agent**: It represents the back end of our software where all the database information is stored/retrieved/updated. System database agent will manage reports as well.
+
+**Web portal Agent**: it is responsible for the Interaction with Users.
+The above agents will communicate and send messages to each other using Message Protocol. The Gaia Methodology which includes roles, permissions, rights, protocols, and transmission between agents is  used for the analysis and design of our application. 
+
+
+![image](https://user-images.githubusercontent.com/24715827/144364233-30d846d7-9967-4438-b648-ff8d87c433f6.png)
+
+## Multi Agent System
+----------------------
+An agent is a software entity that functions continuously and autonomously in a particular environment, often inhabited by other agents and process. In our system there are four agents as follows:
+•	Web portal Agent
+•	User Agent
+•	System Database Agent
+•	AHS Admin Agent
+
+![image](https://user-images.githubusercontent.com/24715827/144363821-1bffb706-38a5-42cd-b3d6-179982966de3.png)
 
 
 ## Software Requirements
 ----------------------
--> Please Use requirements.txt file to install all dependencies on your machine
+Please Use requirements.txt file to install all dependencies on your machine
 1) Python 3.7
 2) Tkinter (For GUI)
 3) Spade (Multi Agent System Framework)
