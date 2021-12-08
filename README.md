@@ -9,13 +9,13 @@ COVID-19 vaccines help prevent us from getting infected and protect us from gett
 ----------------------
 Multi-agent systems technology allows for the development of autonomous software entities (intelligent agents) which are designed to communicate with each other. In our project, we are aiming to have a multi-agent system with the following agents: 
 
-**User agent**: who manages the user and gets the vaccination report on behalf of the user to be displayed. 
+**User agent**: Responsible for generating covid report. 
 
-**AHS admin agent**: An agent who stores data related to COVID 19.
+**AHS admin agent**: Responsible for find user data/vaccine data and adding vaccine data.
 
-**System database agent**: It represents the back end of our software where all the database information is stored/retrieved/updated. System database agent will manage reports as well.
+**System database agent**: Responsible for find user data/vaccine data and add/delete/update user/vaccine data.
 
-**Web portal Agent**: it is responsible for the Interaction with Users.
+**Web portal Agent**: Responsible for connecting to other backend agents and get information from them.
 The above agents will communicate and send messages to each other using Message Protocol. The Gaia Methodology which includes roles, permissions, rights, protocols, and transmission between agents is  used for the analysis and design of our application. 
 
 
