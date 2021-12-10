@@ -1,0 +1,49 @@
+Report Generation Flow:
+1) User enters name & HC no on GUI and presses GenerateReport Button.
+2) Webportal agent request systemdatabase admin agent to send the info against that name and HC No.
+3) Webportal agent sends all UserInfo/VaccineReportInfo(Name, HCNo, DOB, Dose1Details, Dose2Details) to User agent.
+4) Using above info user agent generate pdf report and convert it into string format and send it back to webportal agent.
+5) Webportal agent decode the string sent by user agent and convert back into pdf and save it.
+
+Find UserData Flow:
+1) User enters name & HC no on GUI and presses Find Button.
+2) Webportal agent request systemdatabase admin agent to send the info against that name and HC No.
+3) Systemdatabse admin agent send all UserInfo(Name, HCNo, DOB, Address, Contact) to webportal agent.
+4) GUI shows all received info on screen.
+
+
+Find VaccineData/ReportData Flow:
+1) User enters name & HC no on GUI and presses Find Button.
+2) Webportal agent request systemdatabase admin agent to send the VaccineData/ReportData against that name and HC No.
+3) Systemdatabse admin agent send all UserInfo(Dose1Details, Dose2Details) to webportal agent.
+4) GUI shows all received info on screen.
+
+User1:
+John Smith
+123456
+Oct/14/1997
+Calgary NW
+5879689121
+
+Pfizer
+Jul/01/2021
+University
+Pfizer
+Aug/01/2021
+Sagehill
+
+User2:
+Ken
+654321
+Nov/10/1980
+Calgary SW
+5879689128
+
+Moderna
+Aug/01/2021
+University
+Moderna
+Sept/01/2021
+Sagehill
+
+
